@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super App - Orçamento de Compras</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app" :class="{ dark: isDarkMode }">
+        <header>
+            <div class="header-content">
+                <h1>Super App - Orçamento de Compras no Supermercado</h1>
+                <div class="header-input">
+                    <label for="budget">Valor disponível:</label>
+                    <input type="number" v-model.number="budget" id="budget" placeholder="Digite o valor">
+                </div>
+                <button @click="toggleDarkMode" class="dark-mode-button">🌙</button>
+            </div>
+        </header>
+        <main>
+            <section class="input-section">
+                <label for="segment-config" class="segment-config-title">Configurar Segmentos:</label>
+                <div id="segment-config">
+                    <div v-for="segment in segments" :key="segment.name" class="segment-config">
+                        <label :for="segment.name">{{ segment.emoji }} {{ segment.name }}:</label>
+                        <input type="number" v-model.number="segment.percentage" :id="segment.name">
+                        <input type="checkbox" v-model="segment.enabled" :id="segment.name + '-enabled'">
+                        <label :for="segment.name + '-enabled'">Ativo</label>
+                    </div>
+                </div>
+                <button @click="updateBudgets" class="calculate-button">Calcular Orçamento</button>
+            </section>
+            <section class="segments">
+                <div v-for="segment in segments" :key="segment.name" class="segment" :style="{ backgroundColor: segment.color }" v-if="segment.enabled">
+                    <h2>{{ segment.emoji }} {{ segment.name }}</h2>
+                    <p>Orçamento: R$ {{ segment.budget }}</p>
+                    <p :class="{ error: segment.remaining < 0 }">Restante: R$ {{ segment.remaining }}</p>
+                    <ul>
+                        <li v-for="item in segment.items" :key="item.name">
+                            {{ item.name }} - R$ {{ item.price }}
+                            <button @click="removeItem(segment.name, item)">Remover</button>
+                        </li>
+                    </ul>
+                    <input type="text" v-model="segment.newItemName" placeholder="Item">
+                    <input type="number" v-model.number="segment.newItemPrice" placeholder="Preço">
+                    <button @click="addItem(segment.name)">Adicionar Item</button>
+                </div>
+            </section>
+            <button @click="downloadList" class="download-button">Baixar Lista de Compras</button>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

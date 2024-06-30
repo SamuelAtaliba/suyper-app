@@ -1,0 +1,171 @@
+/* styles.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.dark {
+  background-color: #333;
+  color: #f0f0f0;
+}
+
+.dark input,
+.dark label {
+  color: #f0f0f0;
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+  background-color: #ff9800;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-input {
+  display: flex;
+  align-items: center;
+}
+
+header input {
+  padding: 10px;
+  font-size: 1em;
+  margin-left: 10px;
+  border-radius: 5px;
+  background: white;
+  color: black;
+}
+
+header .dark-mode-button {
+  background: none;
+  border: none;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+  border-radius: 5px;
+  font-size: 1.2em;
+}
+
+header .dark-mode-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.input-section {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.input-section input {
+  padding: 10px;
+  font-size: 1em;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+#segment-config {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.segment-config {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 10px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.segment-config label {
+  margin-right: 10px;
+}
+
+.segment-config input[type="number"] {
+  width: 60px;
+  margin-bottom: 5px;
+}
+
+.calculate-button {
+  background-color: #ff9800;
+  border: none;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+  border-radius: 5px;
+}
+
+.calculate-button:hover {
+  background-color: #e68900;
+}
+
+.segments {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.segment {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+  width: 300px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.segment:hover {
+  transform: scale(1.05);
+}
+
+button {
+  background-color: #ff9800;
+  border: none;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #e68900;
+}
+
+.download-button {
+  margin-top: 20px;
+}
+
+.error {
+  color: red;
+}
+
+.segment-config-title {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
